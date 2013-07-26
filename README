@@ -26,29 +26,47 @@ See INSTALL for install first.
 RipL-POX must use the exact same topology as Mininet.  Order shouldn't matter, but to reduce the initial debug output caused by IPv6 link-layer discovery messages that get broadcast, start up the topology first:
 
 # Running Mininet w/a Fat Tree topology, in a second window:
-cd ~/
-sudo mn --custom ~/ripl/ripl/mn.py --topo ft,4 --controller=remote --mac
+
+    cd ~/venv/
+
+    . bin/activate
+
+    sudo mn --custom lib/python2.7/site-packages/ripl/mn.py --topo ft,4 --controller=remote --mac
 
 # Run RipL-POX in reactive mode w/random routing
-cd ~/
-~/pox/pox.py riplpox.riplpox --topo=ft,4 --routing=random --mode=reactive
+
+    cd ~/venv/
+
+    . bin/activate
+
+    pox.sh riplpox.riplpox --topo=ft,4 --routing=random --mode=reactive
 
 That's it - at this point, your network should run.
 
 Here are other invocation examples:
 
 # Run RipL-POX in reactive mode w/hashed routing
-cd ~/
-~/pox/pox.py riplpox.riplpox --topo=ft,4 --routing=hashed --mode=reactive
+
+    cd ~/venv/
+
+    . bin/activate
+
+    pox.sh riplpox.riplpox --topo=ft,4 --routing=hashed --mode=reactive
 
 # Run RipL-POX in proactive mode w/spanning-tree routing
-cd ~/
-~/pox/pox.py riplpox.riplpox --topo=ft,4 --routing=st --mode=proactive
+
+    cd ~/venv/
+
+    . bin/activate
+
+    pox.sh riplpox.riplpox --topo=ft,4 --routing=st --mode=proactive
 
 == Verifying the setup ==
 
 In mininet console:
-pingall
-iperf
+
+    pingall
+
+    iperf
 
 
